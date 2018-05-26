@@ -1,0 +1,102 @@
+# depslib dependency file v1.0
+1496595533 source:c:\users\alfredo tito\documents\estrutura de dados ii\ed2trab2\avl.cpp
+	"AVL.h"
+
+1496534492 c:\users\alfredo tito\documents\estrutura de dados ii\ed2trab2\structs.h
+	<string>
+	<vector>
+
+1496576927 source:c:\users\alfredo tito\documents\estrutura de dados ii\ed2trab2\hash.cpp
+	"Hash.h"
+
+1496576251 c:\users\alfredo tito\documents\estrutura de dados ii\ed2trab2\hash.h
+	<stdlib.h>
+	<string.h>
+	"structs.h"
+
+1496594595 source:c:\users\alfredo tito\documents\estrutura de dados ii\ed2trab2\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<string.h>
+	<stdlib.h>
+	<time.h>
+	"structs.h"
+	"AVL.h"
+	"Hash.h"
+	"RedBlack.h"
+
+1496575111 c:\users\alfredo tito\documents\estrutura de dados ii\ed2trab2\avl.h
+	"structs.h"
+
+1496594586 c:\users\alfredo tito\documents\estrutura de dados ii\ed2trab2\redblack.h
+	"structs.h"
+
+1496595541 source:c:\users\alfredo tito\documents\estrutura de dados ii\ed2trab2\redblack.cpp
+	"RedBlack.h"
+
+1527320784 source:c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\avl.cpp
+	"AVL.h"
+	"structs.h"
+
+1527320732 c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\avl.h
+	"structs.h"
+
+1527319210 c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\structs.h
+	<string>
+	<vector>
+
+1516631968 source:c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\hash.cpp
+	"Hash.h"
+
+1516631968 c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\hash.h
+	<stdlib.h>
+	<string.h>
+	"structs.h"
+
+1527320784 source:c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\redblack.cpp
+	"RedBlack.h"
+	"structs.h"
+
+1527320732 c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\redblack.h
+	"structs.h"
+
+1527320732 source:c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<string.h>
+	<stdlib.h>
+	<time.h>
+	"structs.h"
+	"AVL.h"
+	"RedBlack.h"
+	"list.h"
+	"Binary.h"
+
+1527320732 c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\list.h
+	"structs.h"
+
+1527320732 source:c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\list.cpp
+	"list.h"
+	"structs.h"
+	<iostream>
+	<string.h>
+	"lista.h"
+	<iostream>
+	<stdio.h>
+
+1527320784 source:c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\binary.cpp
+	"Binary.h"
+	"stdlib.h"
+	"stdio.h"
+	"structs.h"
+
+1527320733 c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\binary.h
+	"structs.h"
+
+1527303213 source:c:\users\guilh_000\onedrive\ed ii\edii\implementações\ed2trab2\structs.cpp
+	"structs.h"
+
