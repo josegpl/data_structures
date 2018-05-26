@@ -13,8 +13,6 @@
 
 using namespace std;
 
-vector<string> vector_of_words(string frase);
-void ocurrences(Data* data, vector<string> doc);
 Data *vamo(string frase);
 
 int main(){
@@ -24,7 +22,7 @@ int main(){
     Bnode* Broot = NULL;
 
     ifstream entrada;
-    entrada.open("test.txt");
+    entrada.open("hundred.txt");
     int i = 0;
     char *teste;
     int line = 1;
@@ -38,10 +36,11 @@ int main(){
         documento.push_back(str);
     }
 
+//adiciona os elementos em cada estrutura
     for(int i = 0; i < documento.size(); i++) {
         Data *dado = vamo(documento[i]);
         if (dado!=NULL) {
-            /*AVL*/
+                    /*AVL*/
                     AVLroot = insert_AVLnode(AVLroot, dado);
                     /*Red and Black*/
                     RB_Insert(&RBroot, dado);
@@ -51,34 +50,7 @@ int main(){
                     B_Insert(&Broot, dado);
         }
     }
-    //começar adicionar elementos
-    /*
-    for(int i = 0; i < documento.size(); i++){
-        /*gerar palavras*/ /*
-        vector<string> palavras = vector_of_words(documento[i]);
-        for(int j = 0; j < palavras.size(); j++){
-            //busca se elemento ja existe
-            //verifica o tamanho
-            if(palavras[j].size() > 2){
-                Data* dado = new Data[1];
-                if(dado != NULL){
-                    dado->key = valorString(palavras[j]);
-                    dado->palavra = palavras[j];
-                    ocurrences(dado, documento);
-                    /*Inserções*/
 
-                    /*AVL*/ /*
-                    AVLroot = insert_AVLnode(AVLroot, dado);
-                    /*Red and Black*/ /*
-                    RB_Insert(&RBroot, dado);
-                    /*Lista*/ /*
-                    insFim(&listRoot, dado);
-                    /*Binary Tree*/ /*
-                    B_Insert(&Broot, dado);
-                }
-            }
-        }
-    } */
     entrada.close();
 
 
@@ -100,16 +72,14 @@ int main(){
     cout<<"tempo gasto na busca AVL: "<<passos<<" passos"<<endl;
     if(dado != NULL){
         cout <<"chave: " << dado->key <<" dado1: " <<dado->dado1  <<" dado3: "<<dado->palavra << endl;
-       /* for(int j = 0; j < dado->linhas.size(); j++)
-            cout << "linha " << dado->ocorrencias[j] << ": " << dado->linhas[j] << endl; */
+    }else{
+        cout<<"não foi encontrado";
     }
 
 
     /*Busca na RB*/
 passos=0;
     cout << "digite a palavra que quer buscar" << endl;
-    /*cin.getline(buffer,1000);
-    busca = buffer; */
     cin >> keytofind;
     RBQuery(RBroot, &dado, keytofind, &passos);
     cout<<"tempo gasto na busca REDBLACK: "<<passos<<" passos"<<endl;
@@ -121,17 +91,11 @@ passos=0;
         cout<<"não foi encontrado";
     }
 passos=0;
-    /*Busca na Lista Encadeada*/
-     cout << "digite a palavra que quer buscar" << endl;
-    /*cin.getline(buffer,1000);
-    busca = buffer;*/
     cin >> keytofind;
     listaQuery(listRoot, &dado, keytofind, &passos);
     cout<<"tempo gasto na busca LISTA: "<<passos<<" passos"<<endl;
     if(dado != NULL){
-        cout <<"chave: " << dado->key <<" dado1: " <<dado->dado1  <<" dado3: "<<dado->palavra << endl; /*
-        for(int j = 0; j < dado->linhas.size(); j++)
-            cout << "linha " << dado->ocorrencias[j] << ": " << dado->linhas[j] << endl; */
+        cout <<"chave: " << dado->key <<" dado1: " <<dado->dado1  <<" dado3: "<<dado->palavra << endl;
     }else{
         cout<<"não foi encontrado";
     }
@@ -139,15 +103,12 @@ passos=0;
     /*Busca na Binary Tree*/
 passos=0;
     cout << "digite a palavra que quer buscar" << endl;
-    /*cin.getline(buffer,1000);
-    busca = buffer; */
+
     cin >> keytofind;
     BinaryQuery(Broot, &dado, keytofind, &passos);
     cout<<"tempo gasto na busca BINARY: "<<passos<<" passos"<<endl;
     if(dado != NULL){
-        cout <<"chave: " << dado->key <<" dado1: " <<dado->dado1  <<" dado3: "<<dado->palavra << endl; /*
-        for(int j = 0; j < dado->linhas.size(); j++)
-            cout << "linha " << dado->ocorrencias[j] << ": " << dado->linhas[j] << endl; */
+        cout <<"chave: " << dado->key <<" dado1: " <<dado->dado1  <<" dado3: "<<dado->palavra << endl;
     }else{
         cout<<"não foi encontrado";
     }
@@ -158,6 +119,7 @@ passos=0;
     //int x = listaDestroy(listRoot);
     return 0;
 }
+//Função que pega cada frase do documento e coloca nos dados correspondentes
 Data *vamo(string frase) {
 
     Data *newdata = new Data[1];
@@ -183,7 +145,7 @@ Data *vamo(string frase) {
 
 }
 //Pega palavras da frase
-vector<string> vector_of_words(string frase){
+/*vector<string> vector_of_words(string frase){
     vector<string> vet;
     string del = " ";//delimitador
     size_t pos = 0;
@@ -201,7 +163,7 @@ vector<string> vector_of_words(string frase){
 }
 
 /*Função que verifica as ocorrências no texto
-  e preencher o struct data*/
+  e preencher o struct data
 void ocurrences(Data* data, vector<string> doc){
     //ver onde ocorre a palavra
     int line = 1;
@@ -213,3 +175,4 @@ void ocurrences(Data* data, vector<string> doc){
         line++;
     }
 }
+*/

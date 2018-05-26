@@ -35,13 +35,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="AVL.h" />
-		<Unit filename="Hash.cpp" />
-		<Unit filename="Hash.h" />
+		<Unit filename="Binary.cpp" />
+		<Unit filename="Binary.h" />
 		<Unit filename="RedBlack.cpp" />
 		<Unit filename="RedBlack.h" />
+		<Unit filename="list.cpp" />
 		<Unit filename="list.h" />
-		<Unit filename="lista.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="structs.cpp" />
 		<Unit filename="structs.h" />
 		<Extensions>
 			<code_completion />
