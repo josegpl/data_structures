@@ -99,7 +99,7 @@ int main(){
     Query(AVLroot, &dado, keytofind, &passos);
     cout<<"tempo gasto na busca AVL: "<<passos<<" passos"<<endl;
     if(dado != NULL){
-        cout << "palavra: "<<dado->palavra << endl;
+        cout <<"chave: " << dado->key <<" dado1: " <<dado->dado1  <<" dado3: "<<dado->palavra << endl;
        /* for(int j = 0; j < dado->linhas.size(); j++)
             cout << "linha " << dado->ocorrencias[j] << ": " << dado->linhas[j] << endl; */
     }
@@ -114,7 +114,7 @@ passos=0;
     RBQuery(RBroot, &dado, keytofind, &passos);
     cout<<"tempo gasto na busca REDBLACK: "<<passos<<" passos"<<endl;
     if(dado != NULL){
-        cout << "palavra: "<<dado->palavra << endl; /*
+        cout <<"chave: " << dado->key <<" dado1: " <<dado->dado1  <<" dado3: "<<dado->palavra << endl; /*
         for(int j = 0; j < dado->linhas.size(); j++)
             cout << "linha " << dado->ocorrencias[j] << ": " << dado->linhas[j] << endl; */
     }else{
@@ -129,7 +129,7 @@ passos=0;
     listaQuery(listRoot, &dado, keytofind, &passos);
     cout<<"tempo gasto na busca LISTA: "<<passos<<" passos"<<endl;
     if(dado != NULL){
-        cout <<"chave: " << dado->key <<" dado2: " <<dado->dado1  <<" palavra: "<<dado->palavra << endl; /*
+        cout <<"chave: " << dado->key <<" dado1: " <<dado->dado1  <<" dado3: "<<dado->palavra << endl; /*
         for(int j = 0; j < dado->linhas.size(); j++)
             cout << "linha " << dado->ocorrencias[j] << ": " << dado->linhas[j] << endl; */
     }else{
@@ -145,7 +145,7 @@ passos=0;
     BinaryQuery(Broot, &dado, keytofind, &passos);
     cout<<"tempo gasto na busca BINARY: "<<passos<<" passos"<<endl;
     if(dado != NULL){
-        cout << "palavra: "<<dado->palavra << endl; /*
+        cout <<"chave: " << dado->key <<" dado1: " <<dado->dado1  <<" dado3: "<<dado->palavra << endl; /*
         for(int j = 0; j < dado->linhas.size(); j++)
             cout << "linha " << dado->ocorrencias[j] << ": " << dado->linhas[j] << endl; */
     }else{
