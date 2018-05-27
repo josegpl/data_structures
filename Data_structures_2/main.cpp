@@ -22,7 +22,7 @@ int main(){
     Bnode* Broot = NULL;
 
     ifstream entrada;
-    entrada.open("hundred.txt");
+    entrada.open("hundredrandom.txt");
     int i = 0;
     char *teste;
     int line = 1;
