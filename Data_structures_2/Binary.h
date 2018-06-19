@@ -16,5 +16,7 @@ void tDestroyNode(Bnode *no);
 void tDestroy(Bnode *root);
 void B_Insert(Bnode **r, Data *data);
 void BinaryQuery(Bnode* root,Data** aux,int str,int* passos);
+Bnode* findMin(Bnode* t);
+Bnode* AVLremove(int x, Bnode* t);
 
 #endif // _BINARY_H_

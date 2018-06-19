@@ -16,7 +16,33 @@ using namespace std;
     return t;
 }*/
 
-void B_Insert(Bnode **r, Data *data) {
+void B_Insert(Bnode** root, Data* data){
+    Bnode* y = NULL;
+    Bnode* x = *root;
+    while(x != NULL){
+        y = x;
+        if(data->key < x->data->key)
+            x = x->left;
+        else
+            x = x->right;
+    }
+    Bnode* newnode = new Bnode[1];
+    if(newnode != NULL){
+        newnode->data = data;
+        newnode->left = NULL;
+        newnode->right = NULL;
+    }
+    if(y == NULL){
+        *root = newnode;
+    }else{
+        if(data->key < y->data->key)
+            y->left = newnode;
+        else
+            y->right = newnode;
+    }
+}
+
+/*void B_Insert(Bnode **r, Data *data) {
 
     if (r == NULL) return;
     if (*r == NULL) {
@@ -39,7 +65,7 @@ void B_Insert(Bnode **r, Data *data) {
     }
     }
 
-}
+}*/
 
 void BinaryQuery(Bnode* root,Data** aux,int str,int* passos) {
 //int value = valorString(str);
@@ -56,15 +82,59 @@ void BinaryQuery(Bnode* root,Data** aux,int str,int* passos) {
 
 }
 
+Bnode* findMin(Bnode* t) { //achar o antecessor
+        if(t == NULL)
+            return NULL;
+        else if(t->left == NULL)
+            return t;
+        else
+            return findMin(t->left);
+    }
+
+
+Bnode* Bremove(int x, Bnode* t) {
+        Bnode* temp;
+
+        // Elemento nao encontrado
+        if(t == NULL)
+            return NULL;
+
+        // Procurando elemento
+        else if(x < t->data->key)
+            t->left = Bremove(x, t->left);
+        else if(x > t->data->key)
+            t->right = Bremove(x, t->right);
+
+        // Elemento encontrado
+        // Com dois filhos
+        else if(t->left && t->right)
+        {
+            temp = findMin(t->right);
+            t->data = temp->data;
+            t->right = Bremove(t->data->key, t->right);
+        }
+        // 1 ou nenhum filho
+        else
+        {
+            temp = t;
+            if(t->left == NULL)
+                t = t->right;
+            else if(t->right == NULL)
+                t = t->left;
+            delete temp;
+        }
+        if(t == NULL)
+            return t;
+
+        return t;
+    }
+
 void tDestroyNode(Bnode *no) {
     if(no == NULL) return;
     tDestroyNode(no->left);
     tDestroyNode(no->right);
-    // no->data->linhas.clear();
-    //  no->data->ocorrencias.clear();
       delete [] no->data;
      delete [] no;
-    free(no);
     no = NULL;
 
 }
@@ -73,13 +143,9 @@ void tDestroyNode(Bnode *no) {
 void tDestroy(Bnode *raiz) {
     if (raiz == NULL) return;
     tDestroyNode(raiz); //libera cada no
-     //raiz->data->linhas.clear();
-        //raiz->data->ocorrencias.clear();
      delete [] raiz->data;
      delete [] raiz;
     //free(raiz); // libera a raiz
-    raiz = NULL;
-
 }
 
 

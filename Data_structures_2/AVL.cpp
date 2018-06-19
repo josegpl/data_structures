@@ -1,5 +1,6 @@
 #include "AVL.h"
 #include "structs.h"
+#include <iostream>
 using namespace std;
 
 //Calcule altura de um nó
@@ -100,7 +101,7 @@ AVLnode* insert_AVLnode(AVLnode* root,Data* data){
 }
 //Query
 void Query(AVLnode* root,Data** aux,int str,int* passos){
-    //int value = valorString(str);
+
     if(root != NULL){
         if(root->data->key == str){
             *aux = root->data;
@@ -112,14 +113,92 @@ void Query(AVLnode* root,Data** aux,int str,int* passos){
     }
     *passos = *passos + 1;
 }
+AVLnode* findMin(AVLnode* t) {//achar menor
+        if(t == NULL)
+            return NULL;
+        else if(t->left == NULL)
+            return t;
+        else
+            return findMin(t->left);
+    }
+
+
+AVLnode* AVLremove(int x, AVLnode* t) {
+        AVLnode* temp;
+
+        // Elemento nao encontrado
+        if(t == NULL)
+            return NULL;
+
+        // procurar elemento
+        else if(x < t->data->key)
+            t->left = AVLremove(x, t->left);
+        else if(x > t->data->key)
+            t->right = AVLremove(x, t->right);
+
+        // Elemento encontrado
+        // Com 2 filhos
+        else if(t->left && t->right)
+        {
+            temp = findMin(t->right);
+            t->data = temp->data;
+            t->right = AVLremove(t->data->key, t->right);
+        }
+        // Com 1 ou nenhum filho
+        else
+        {
+            temp = t;
+            if(t->left == NULL)
+                t = t->right;
+            else if(t->right == NULL)
+                t = t->left;
+            delete temp;
+        }
+        if(t == NULL)
+            return t;
+
+       /* t->height = max(height(t->left), height(t->right))+1;
+
+        // If node is unbalanced
+        // If left node is deleted, right case
+        if(height(t->left) - height(t->right) == 2)
+        {
+            // right right case
+            if(height(t->left->left) - height(t->left->right) == 1)
+                return singleLeftRotate(t);
+            // right left case
+            else
+                return doubleLeftRotate(t);
+        }
+        // If right node is deleted, left case
+        else if(height(t->right) - height(t->left) == 2)
+        {
+            // left left case
+            if(height(t->right->right) - height(t->right->left) == 1)
+                return singleRightRotate(t);
+            // left right case
+            else
+                return doubleRightRotate(t);
+        }*/
+        return t;
+    }
+
+
+
+void AVLprint(AVLnode *no) { //printa AVL e verifica se as insercoes foram corretamente
+    if(no != NULL) {
+        cout << no->data->key <<" " << no->data->dado1 << " " << no->data->palavra << endl;
+        AVLprint(no->left);
+        AVLprint(no->right);
+    }
+}
+
 
 //Destruir
 void Destroy(AVLnode *t){
     if(t != NULL){
         Destroy(t->left);
         Destroy(t->right);
-       // t->data->linhas.clear();
-       // t->data->ocorrencias.clear();
         delete[]t->data;
         delete[]t;
     }
