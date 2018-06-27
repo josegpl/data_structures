@@ -1,2 +1,2 @@
 
-Database created to manage auto racing championships. 
+Database created to manage motorsport championships. 
